@@ -12,8 +12,8 @@ var (
 	ErrInvalidEmail = errors.New("invalid email format")
 	// ErrInvalidAge is returned when the age is invalid
 	ErrInvalidAge = errors.New("invalid age: must be between 0 and 150")
-	// ErrEmptyName is returned when the name is empty
-	ErrEmptyName = errors.New("name cannot be empty")
+	// ErrInvalidName is returned when the name is empty
+	ErrInvalidName = errors.New("name cannot be empty")
 )
 
 // User represents a user in the system
@@ -39,7 +39,7 @@ func NewUser(name string, age int, email string) (*User, error) {
 // Validate checks if the user data is valid
 func (u *User) Validate() error {
 	if strings.TrimSpace(u.Name) == "" {
-		return ErrEmptyName
+		return ErrInvalidName
 	}
 	if u.Age < 0 || u.Age > 150 {
 		return ErrInvalidAge
