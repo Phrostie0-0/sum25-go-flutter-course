@@ -138,7 +138,7 @@ func (h *Handler) GetHTTPStatus(w http.ResponseWriter, r *http.Request) {
 
 	statusResponse := models.HTTPStatusResponse{
 		StatusCode:  code,
-		ImageURL:    fmt.Sprintf("http://localhost:8080/api/cat/%d", code),
+		ImageURL:    fmt.Sprintf("http://localhost:8888/api/cat/%d", code), // Use our proxy
 		Description: getHTTPStatusDescription(code),
 	}
 
